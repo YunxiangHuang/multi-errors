@@ -28,6 +28,11 @@ func (e *Errors) SetFormatter(f func([]error) string) {
 	}
 }
 
+// RawError returns inner errors as a slice.
+func (e *Errors) RawErrors() []error {
+	return e.errs
+}
+
 // Error implements error interface.
 func (e *Errors) Error() string {
 	if e.formatter != nil {

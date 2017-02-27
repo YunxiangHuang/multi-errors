@@ -14,10 +14,15 @@ err := multierror.New()
 err := multierror.NewWithError(existError)
 ```
 
+### Get inner errors
+
+``` Golang
+err.RawErrors()
+```
+
 ### Add error
 
 ``` Golang
-// Add new error.
 err.Add(otherError)
 ```
 
