@@ -57,6 +57,7 @@ func defaultFormatter(es []error) string {
 			msg += ", "
 		}
 		msg += err.Error()
+		firstFlag = false
 	}
 	return msg
 }
@@ -71,16 +72,7 @@ func New() *Errors {
 
 // NewWithError creates an errors and adds the given error.
 func NewWithError(err error) *Errors {
-	if err == nil {
-		return New()
-	}
-
-	switch e := err.(type) {
-	case *Errors:
-		return e
-	default:
-		newErr := New()
-		newErr.Add(err)
-		return newErr
-	}
+	newErr := New()
+	newErr.Add(err)
+	return newErr
 }
