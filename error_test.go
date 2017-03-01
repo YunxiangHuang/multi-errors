@@ -70,10 +70,10 @@ func TestErrorsAddNil(t *testing.T) {
 	assert.Empty(t, mError.errs)
 }
 
-func TestErrorsRawErrors(t *testing.T) {
+func TestErrorsRawError(t *testing.T) {
 	mError := New()
-	assert.Equal(t, mError.errs, mError.RawErrors())
+	assert.Equal(t, mError.errs, mError.RawError())
 
 	mError.Add(errors.New("error"))
-	assert.Equal(t, mError.errs, mError.RawErrors())
+	assert.Equal(t, mError.errs, mError.RawError())
 }

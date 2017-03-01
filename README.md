@@ -17,7 +17,7 @@ err := multierror.NewWithError(existError)
 ### Get inner errors
 
 ``` Golang
-err.RawErrors()
+err.RawError()
 ```
 
 ### Add error
